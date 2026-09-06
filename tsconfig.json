@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022"],
+    "types": ["node"],
+
+    // exjs-controllers parameter decorators (@Body, @Param, @CurrentUser, @Inject)
+    // only exist in the legacy TypeScript implementation. emitDecoratorMetadata
+    // is not needed.
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+
+    "strict": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "outDir": "dist"
+  },
+  "include": ["src", "test", "vitest.config.ts"]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "exjs-controllers-demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Demo application for exjs-controllers: an in-memory Todo API showing controllers, DTO validation, dependency injection, use cases, authentication and OpenAPI document groups.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "yarn@4.18.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "node dist/main.js",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "exjs-controllers": "^0.11.1",
+    "express": "^5.2.1",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0"
+  }
+}
