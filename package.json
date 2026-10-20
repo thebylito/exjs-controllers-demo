@@ -18,7 +18,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "exjs-controllers": "^0.11.1",
+    "exjs-controllers": "^0.13.0",
     "express": "^5.2.1",
     "zod": "^4.5.4"
   },

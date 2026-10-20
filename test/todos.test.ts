@@ -185,3 +185,22 @@ describe('OpenAPI documents', () => {
     }
   })
 })
+
+// exjs-controllers 0.13.0: @Body(Dto) copies only the keys declared with
+// @Field, so a client cannot smuggle undeclared fields into the use case.
+describe('body hydration (exjs-controllers >= 0.13.0)', () => {
+  it('drops undeclared body keys before the use case runs', async () => {
+    const response = await request('/todos', {
+      method: 'POST',
+      headers: { ...json, ...alice },
+      body: JSON.stringify({ title: 'Only the title is declared', done: true, createdBy: 'u-999' }),
+    })
+    expect(response.status).toBe(201)
+
+    const created = (await response.json()) as { id: string; done: boolean; createdBy: string }
+    expect(created).toMatchObject({ done: false, createdBy: 'u-1' })
+
+    const deleted = await request(`/todos/${created.id}`, { method: 'DELETE', headers: alice })
+    expect(deleted.status).toBe(204)
+  })
+})
